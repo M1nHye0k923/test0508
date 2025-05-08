@@ -1,26 +1,10 @@
 import qrcode
 
-def generate_qr_from_github():
-    # GitHub raw 주소 입력
-    github_url = input("https://raw.githubusercontent.com/M1nHye0k923/test0508/main/test0508.ipynb")
+# 깃허브 사용자 프로필 주소
+github_url = 'https://github.com/M1nHye0k923/test0508'
 
-    # QR 코드 객체 생성
-    qr = qrcode.QRCode(
-        version=1,  # 자동 크기
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
-        box_size=10,
-        border=4
-    )
-    qr.add_data(github_url)
-    qr.make(fit=True)
+# QR 코드 생성
+img = qrcode.make(github_url)  # 변수명을 img로
 
-    # QR 코드 이미지 생성
-    img = qr.make_image(fill_color="black", back_color="white")
-
-    # 이미지 파일로 저장
-    filename = "github_qr.png"
-    img.save(filename)
-    print(f"✅ QR 코드가 '{filename}'로 저장되었습니다!")
-
-if __name__ == "__main__":
-    generate_qr_from_github()
+# 이미지로 저장
+img.save('github_qrcode.png')  # img.save로 저장
