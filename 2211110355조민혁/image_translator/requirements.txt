@@ -1,0 +1,4 @@
+streamlit
+easyocr
+requests
+qrcode[pil]
